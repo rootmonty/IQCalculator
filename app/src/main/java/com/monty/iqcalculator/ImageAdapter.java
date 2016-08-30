@@ -15,6 +15,10 @@ import java.util.ArrayList;
  * Created by monty on 8/8/16.
  */
 public class ImageAdapter extends BaseAdapter {
+
+    //No of objects to be created and inflated in the gridview
+    //Define distinctly all the elements even if it a list
+    //Use simple arrayadapter incase of strings no need to form a custom adapter for that
     private Context context;
     private final String[] Values;
     private int[] imageid;
@@ -25,6 +29,11 @@ public class ImageAdapter extends BaseAdapter {
         this.imageid= imageid;
     }
 
+    //most important method
+    //gets called while inflation
+    //need to take care of the condition of the convertview
+    //if convertview is null inflate it and then typecast the views and set text
+    //Could have used VIEWHOLDER too but no need to make it complex
     public View getView(int position, View convertView, ViewGroup parent) {
 
         LayoutInflater inflater = (LayoutInflater) context
